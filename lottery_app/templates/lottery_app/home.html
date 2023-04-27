@@ -1,0 +1,27 @@
+{% extends 'lottery_app/base.html' %}
+
+{% block content %}
+<div class="p-2">
+    <h1>Listado de sorteos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha del sorteo</th>
+                <th scope="col">Premio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sorteo in sorteos %}
+            <tr>
+                <th scope="row">{{ sorteo.id }}</th>
+                <td>{{ sorteo.nombre }}</td>
+                <td>{{ sorteo.fecha_sorteo }}</td>
+                <td>{{ sorteo.premio }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

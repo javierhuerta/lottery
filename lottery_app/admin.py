@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Sorteo
 
-# Register your models here.
+
+@admin.register(Sorteo)
+class SorteoAdmin(admin.ModelAdmin):
+    pass
