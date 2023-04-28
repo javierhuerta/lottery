@@ -1,0 +1,36 @@
+{% extends 'lottery_app/base.html' %}
+
+{% block content %}
+<div class="p-2">
+    <h1>Listado de Ganadores</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">nickname</th>
+                <th scope="col">Fecha nacimiento</th>
+                <th scope="col">es ganador?</th>
+                <th scope="col">nacionalidad</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for win in winners %}
+            <tr>
+                <th scope="row">{{ win.id }}</th>
+                <td>{{ win.nombre }}</td>
+                <td>{{ win.direccion }}</td>
+                <td>{{ win.nickname }}</td>
+                <td>{{ win.fecha_nacimiento }}</td>
+                <td>{{ win.ganador }}</td>
+                <td>{{ win.nacionalidad }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

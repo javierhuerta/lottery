@@ -10,6 +10,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Fecha del sorteo</th>
                 <th scope="col">Premio</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -19,9 +20,15 @@
                 <td>{{ sorteo.nombre }}</td>
                 <td>{{ sorteo.fecha_sorteo }}</td>
                 <td>{{ sorteo.premio }}</td>
+                <td>
+                    
+                    <a href='{% url 'participantes' sorteo.id %}' class='btn btn-dark btn-sm'>Ver</a>
+                    
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
 {% endblock %}
