@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .models import Sorteo, Participante
+import os
 
 # Por este endPoint podemos ver los registros de sorteos
 def home(request):
     sorteos = Sorteo.objects.all()
-    return render(request, 'lottery_app/home.html', {'sorteos': sorteos})
+    hostname = os.environ.get('HOSTNAME')
+    return render(request, 'lottery_app/home.html', {'sorteos': sorteos, 'hostname': hostname})
 
 
 def participantes(request, sorteo_id):
