@@ -2,15 +2,16 @@ version: '3'
 
 services:
   db:
-    image: mysql
+    image: mysql:latest
     environment:
-      MYSQL_DATABASE: 'your_database_name'
-      MYSQL_USER: 'your_mysql_username'
-      MYSQL_PASSWORD: 'your_mysql_password'
-      MYSQL_ROOT_PASSWORD: 'your_mysql_root_password'
-    ports:
-      - "3306:3306"
-  web:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: loteria
+      MYSQL_USER: loteria
+      MYSQL_PASSWORD: loteria12345678
+    volumes:
+      - loteria-db:/var/lib/mysql
+  
+  loteria:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
@@ -21,6 +22,10 @@ services:
       - db
     environment:
       DB_HOST: db
-      DB_NAME: your_database_name
-      DB_USER: your_mysql_username
-      DB_PASSWORD: your_mysql_password
+      DB_PORT: 3306
+      DB_NAME: loteria
+      DB_USER: loteria
+      DB_PASSWORD: loteria12345678
+      
+volumes:
+  loteria-db:
