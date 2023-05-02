@@ -16,8 +16,8 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
     depends_on:
       - db
     environment:
@@ -26,6 +26,15 @@ services:
       DB_NAME: loteria
       DB_USER: loteria
       DB_PASSWORD: loteria12345678
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - loteria
       
 volumes:
   loteria-db:
