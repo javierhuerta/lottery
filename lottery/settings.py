@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'loteria',
         'USER': 'loteria',
         'PASSWORD': 'loteria12345678',
-        'HOST': 'host.docker.internal',
+        'HOST': 'mysql',
         'PORT': '3306',
     }
 }
